@@ -1,0 +1,242 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  transition: all 0.8s ease;
+}
+
+body {
+  font-family: 'Rubik Doodle Shadow', sans-serif;
+  background-image: linear-gradient(to bottom right, black, grey);
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+}
+
+.calculator {
+  position: relative;
+  height: auto;
+  width: auto;
+  padding: 20px;
+  border: 2px solid rgb(46, 46, 46);
+  border-radius: 20px;
+  box-shadow: 0 0 50px #000;
+}
+
+.main-head {
+  display: flex;
+  justify-content: space-between;
+}
+
+#heading {
+  font-size: 30px;
+}
+
+.theme-toggle {
+  position: relative;
+  left: -20px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.theme-toggle.present {
+  color: #333;
+}
+
+.theme-toggle.present::before {
+  content: '';
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-image: url('Resources/icons8-sun.svg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+
+}
+
+.theme-toggle::before {
+  content: '';
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-image: url('Resources/moon-stars-svgrepo-com.svg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.disp-screen {
+  margin-top: 20px;
+}
+
+#disp-expression {
+  height: 10px;
+  width: 100px;
+  font-size: 20px;
+}
+
+#display {
+  margin: 0 10px;
+  height: 120px;
+  width: auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  font-size: 28px;
+  margin-bottom: 20px;
+  overflow-x: scroll;
+}
+
+#display::-webkit-scrollbar {
+  display: none;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 5px;
+}
+
+.btn-equal {
+  grid-column: span 2;
+  width: 95%;
+}
+
+button {
+  font-family: 'Rubik Doodle Shadow', sans-serif;
+  height: 60px;
+  width: 60px;
+  border: 0;
+  border-radius: 10px;
+  margin: 5px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+/* --------------- light theme ---------------------- */
+
+.calculator #heading {
+  color: #000;
+}
+
+.calculator #disp-expression {
+  color: #000;
+}
+
+.calculator {
+  background-color: #fff;
+}
+
+.calculator #display {
+  color: #0a1e23;
+}
+
+.calculator button#clear {
+  background-color: #ffd5d8;
+  color: #fc4552;
+}
+
+.calculator button.btn-num {
+  background-color: #8dd7fa;
+  color: #000000;
+}
+
+.calculator button.btn-op {
+  background-color: #47c2ff;
+  color: #000000;
+}
+
+.calculator button.btn-equal {
+  background-color: #adf9e7;
+  color: #000000;
+}
+
+/* ----------------- dark theme -------------------------------- */
+
+.calculator.dark #heading {
+  color: white;
+}
+
+.calculator.dark #disp-expression {
+  color: white;
+}
+
+.calculator.dark {
+  background-color: #071115;
+}
+
+.calculator.dark #display {
+  color: #f8fafb;
+}
+
+.calculator.dark button#clear {
+  background-color: #2d191e;
+  color: #bd3740;
+}
+
+.calculator.dark button.btn-num {
+  background-color: #1b2f38;
+  color: #f8fafb;
+}
+
+.calculator.dark button.btn-op {
+  background-color: #0c2b3a;
+  color: #f8fafb;
+}
+
+.calculator.dark button.btn-equal {
+  background-color: #223323;
+  color: #f8fafb;
+}
+
+/* ------------------ responsive page ------------------------ */
+@media only screen and (max-width: 410px) {
+  #display {
+    font-size: 24px;
+  }
+
+  #disp-expression {
+    font-size: 18px;
+  }
+
+  button {
+    font-size: 18px;
+    margin: 2px;
+  }
+
+  #heading {
+    margin-top: 10px;
+    font-size: 20px;
+  }
+
+  .calculator {
+    padding: 10px;
+  }
+
+  .theme-toggle::before {
+    content: '';
+    height: 25px;
+    width: 25px;
+  }
+}
